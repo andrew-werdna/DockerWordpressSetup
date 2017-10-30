@@ -26,6 +26,9 @@ tar -xzf wordpress.tar.gz
 mv wordpress $myApp
 rm -rf wordpress.tar.gz
 
+curl https://raw.githubusercontent.com/github/gitignore/master/WordPress.gitignore -o -s .gitignore
+mv .gitignore $myApp
+
 cd $myDocker
 docker-compose up -d
 
