@@ -3,11 +3,11 @@ services:
   database:
     build: ./builds/database
     image: mysql:latest
-    container_name: wordpress_db
+    container_name: wordpress_db_1017
     ports:
       - 3306:3306
     environment:
-      MYSQL_DATABASE: wordpress_blog
+      MYSQL_DATABASE: wordpress_blog_1017
       MYSQL_ROOT_PASSWORD: z3eJjjx95HWb96E4623a
   application:
     build: ./builds/wordpress
@@ -22,7 +22,7 @@ services:
       - database
     tty: true
     environment:
-      WORDPRESS_DB_HOST: wordpress_db
+      WORDPRESS_DB_HOST: wordpress_db_1017
       WORDPRESS_DB_USER: root
       WORDPRESS_DB_PASSWORD: z3eJjjx95HWb96E4623a
       WORDPRESS_DB_NAME: wordpress_blog
