@@ -15,7 +15,7 @@
 ```
 myProject="wordpress_docker_setup";
 myDocker="docker";
-myApp="wordpress";
+myApp="application";
 
 mkdir --parents $myProject
 cd $myProject
