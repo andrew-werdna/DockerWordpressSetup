@@ -1,3 +1,3 @@
-FROM wordpress:php7.1-apache
+FROM wordpress:latest
 RUN apt-get update -y
 ADD ./php.ini /usr/local/etc/php/

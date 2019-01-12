@@ -1,1 +1,3 @@
-local_creds.txt
+docker/.env
+application/*
+

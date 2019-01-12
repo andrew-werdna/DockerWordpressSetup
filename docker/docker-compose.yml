@@ -1,0 +1,38 @@
+version: '3.3'
+
+services:
+
+  database:
+    build: ./builds/database
+    container_name: wp_db_1901
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: ${dbname}
+      MYSQL_ROOT_PASSWORD: ${dbrootpass}
+      MYSQL_USER: ${dbuser}
+      MYSQL_PASSWORD: ${dbpass}
+
+  application:
+    build: ./builds/wordpress
+    container_name: wp_1901
+    volumes:
+      - ../application:/var/www/html
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - database
+    tty: true
+    environment:
+      WORDPRESS_DB_HOST: ${dbhost}
+      WORDPRESS_DB_USER: ${dbuser}
+      WORDPRESS_DB_PASSWORD: ${dbpass}
+      WORDPRESS_DB_NAME: ${dbname}
+
+volumes:
+  db_data: {}
